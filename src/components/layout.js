@@ -2,11 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { injectIntl } from 'react-intl'
+import { Link } from 'gatsby'
 
+import languages, { languageNames } from '../locale'
 import Header from './header'
 import './layout.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ intl, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -38,6 +41,30 @@ const Layout = ({ children }) => (
           }}
         >
           {children}
+
+          <div>
+            <ul className="select-language">
+              {languages.map((language, index) => (
+                <li key={index}>
+                  {language === intl.locale ? (
+                    languageNames[index]
+                  ) : (
+                    <Link
+                      to={language === languages[0] ? '/' : `/${language}/`}
+                    >
+                      {languageNames[index]}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p style={{marginTop: 200}}>
+            <a href="https://github.com/bmihelac/gatsby-react-intl-demo">
+              Source code
+            </a>
+          </p>
         </div>
       </>
     )}
@@ -48,4 +75,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default injectIntl(Layout)

@@ -622,3 +622,13 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.select-language {
+  margin:0;
+}
+.select-language li {
+  display: inline;
+  margin: 0;
+  padding-right: 1em;
+  list-style: none;
+}
