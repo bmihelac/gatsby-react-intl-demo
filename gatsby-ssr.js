@@ -25,7 +25,7 @@ export const wrapPageElement = ({ element, props }) => {
  * __message will be used to setup IntlProvider in IntlLoader
  */
 export const onRenderBody = (
-  { pathname, setHeadComponents },
+  { pathname, setPostBodyComponents },
   pluginOptions
 ) => {
   //The pathname is only set during builds.
@@ -36,5 +36,5 @@ export const onRenderBody = (
     var __messages = ${JSON.stringify(messages)};
     var __language = '${language}';
   /*]]>*/`
-  setHeadComponents([<script dangerouslySetInnerHTML={{ __html }} />])
+  setPostBodyComponents([<script key="locales" dangerouslySetInnerHTML={{ __html }} />])
 }
