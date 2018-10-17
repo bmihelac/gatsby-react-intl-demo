@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { IntlProvider } from 'react-intl'
-import {addLocaleDataFor, getLanguageFromPath} from './src/utils'
+import { addLocaleDataFor, getLanguageFromPath } from './src/utils'
 
 import languages from './src/locale'
 addLocaleDataFor(languages)
@@ -20,13 +20,12 @@ export const wrapPageElement = ({ element, props }) => {
   )
 }
 
-
 /**
  * Adds messages for current langugage to global __message.
  * __message will be used to setup IntlProvider in IntlLoader
  */
 export const onRenderBody = (
-  { pathname, setHeadComponents, setHtmlAttributes, setBodyAttributes, ...other },
+  { pathname, setHeadComponents },
   pluginOptions
 ) => {
   //The pathname is only set during builds.
