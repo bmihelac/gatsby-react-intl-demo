@@ -35,7 +35,7 @@ export const onRenderBody = (
   const messages = require(`./src/locale/${language}.json`)
   const __html = `
     var __messages = ${JSON.stringify(messages)};
-    var __language = ${language};
+    var __language = '${language}';
   `
   setHeadComponents([<script dangerouslySetInnerHTML={{ __html }} />])
 }
