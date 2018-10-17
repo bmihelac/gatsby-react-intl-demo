@@ -32,9 +32,9 @@ export const onRenderBody = (
   //In development, it's not set because we do just one server render which covers all pages.
   const language = getLanguageFromPath(pathname, languages)
   const messages = require(`./src/locale/${language}.json`)
-  const __html = `
+  const __html = `/*<![CDATA[*/
     var __messages = ${JSON.stringify(messages)};
     var __language = '${language}';
-  `
+  /*]]>*/`
   setHeadComponents([<script dangerouslySetInnerHTML={{ __html }} />])
 }
