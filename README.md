@@ -9,3 +9,7 @@
 
 This example focus on using dynamic queries to provide only requested translations
 for given page/language combination.
+
+Demo:
+
+https://test-dynamic-query--gatsby-react-intl-demo.netlify.com/
