@@ -31,7 +31,7 @@ const Layout = ({ intl, children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle="Gatsby + react-intl demo 1" />
         <div
           style={{
             margin: '0 auto',
