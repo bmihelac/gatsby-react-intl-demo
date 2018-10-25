@@ -31,7 +31,7 @@ const Layout = ({ intl, children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle="Gatsby + react-intl demo 2" />
         <div
           style={{
             margin: '0 auto',
@@ -66,7 +66,7 @@ const Layout = ({ intl, children }) => (
           {children}
 
           <p style={{marginTop: 200}}>
-            <a href="https://github.com/bmihelac/gatsby-react-intl-demo">
+            <a href="https://github.com/bmihelac/gatsby-react-intl-demo/tree/test/dynamic-query">
               Source code
             </a>
           </p>
