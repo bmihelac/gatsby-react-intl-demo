@@ -40,9 +40,12 @@ const Layout = ({ intl, children }) => (
             paddingTop: 0,
           }}
         >
-          {children}
 
-          <div>
+        <div
+          style={{
+            marginBottom: '3rem',
+          }}
+        >
             <ul className="select-language">
               {languages.map((language, index) => (
                 <li key={index}>
@@ -59,6 +62,8 @@ const Layout = ({ intl, children }) => (
               ))}
             </ul>
           </div>
+
+          {children}
 
           <p style={{marginTop: 200}}>
             <a href="https://github.com/bmihelac/gatsby-react-intl-demo">

@@ -1,14 +1,42 @@
+import _ from 'lodash'
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
+import { graphql } from 'gatsby'
 
-import Layout from '../../components/layout'
+import PageAbout from '../../components/PageAbout'
 
-const IndexPage = () => (
-  <Layout>
-    <h1>
-      <FormattedMessage id="hello"/>
-    </h1>
-  </Layout>
+const messagesFromNodes = nodes => {
+  const messages = _.fromPairs(nodes.map(e => [e.node.key, e.node.value]))
+  return messages
+}
+
+const IndexPage = ({ data }) => (
+  <PageAbout
+    link="/it/settings"
+    messages={messagesFromNodes(data.allKeyValue.edges)}
+  />
 )
 
 export default IndexPage
+
+// dynamic query for all translations with keys prefixed
+// with 'onboard.welcome.'
+export const query = graphql`
+  query($language: String!) {
+    allKeyValue(
+      filter: {
+        file: {
+          relativeDirectory: { eq: "ooni-wui" }
+          name: { eq: $language }
+        }
+        key: { regex: "/^onboard.welcome/" }
+      }
+    ) {
+      edges {
+        node {
+          key
+          value
+        }
+      }
+    }
+  }
+`

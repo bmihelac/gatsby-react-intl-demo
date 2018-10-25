@@ -1,4 +1,4 @@
-const languages = ['en', 'sl', 'it']
-export const languageNames = ['English', 'Slovenščina', 'Italiano']
+const languages = ['en', 'it']
+export const languageNames = ['English', 'Italiano']
 
 export default languages
